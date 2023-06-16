@@ -1,0 +1,257 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+ margin: 0;
+  padding: 0; 
+  background-image: url();
+  background-color: gold;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  height: 10vh;
+}
+
+nav ul {
+  display: flex;
+  list-style-type: none;
+  align-items: center;
+}
+
+nav ul li {
+  
+  margin-right: 25px;
+  font-size: 20px;
+}
+
+nav ul li a {
+  color: rgb(85, 85, 85);
+}
+
+nav ul li .active {
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  border-bottom: 4px solid black;
+  border-bottom-style:ridge;
+  background-color: #00000013;
+  border-radius: 4px;
+}
+
+.nav-left {
+  flex: 50%;
+}
+
+.nav-right {
+  flex: 50%;
+  text-align: end;
+  margin-right: 25px;
+}
+
+.nav-right a {
+  background-color: rgb(0, 0, 36);
+  padding: 8px 20px;
+  color: white;
+  border-radius: 10px;
+}
+
+.nav-right a:hover{
+  background-color: black;
+  color: white;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  align-items: center;
+}
+
+section {
+  display: flex;
+  width: 90%;
+  justify-content: center;
+  padding: 40px;
+  margin: 20px;
+  border-radius: 2px;
+}
+
+.left {
+  flex: 70%;
+  margin-right: 50px;
+  width: 100%;
+}
+
+
+
+.right-card-container:hover{
+  background-color: rgba(255, 255, 255, 0.705);
+}
+.left h2{
+  color: rgb(1, 18, 34);
+  margin: 0 auto;
+  text-align: left;
+}
+
+.left p{
+  
+  color: rgb(0, 0, 0);
+}
+
+.right {
+  flex: 30%;
+  color: rgb(1, 14, 14);
+}
+
+.right-card-container{
+width: 350px;
+margin: 0 auto;
+justify-content: center;
+padding-bottom: 5px;
+border-radius: 5px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.63);
+color: black;
+text-align: center;
+}
+
+.social-media i {
+  margin: 10px auto;
+  padding: 5 15;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.social-media i:hover{
+  background-color: rgba(255, 255, 255, 0.466);
+  transition-duration: 0.5s;
+  border-radius: 20px;
+}
+
+.lwf{
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.contact{
+  background-color: rgb(0, 0, 41);
+  color: white;
+  border-radius: 5px;
+  border: none;
+  padding: 10px 30px;
+}
+
+.contact:hover{
+  background-color: black;
+  color: white;
+}
+
+.cv{
+  background: none;
+  border: none;
+  padding: 10px;
+}
+
+.cv:hover {
+  background-color: rgba(0, 0, 0, 0.11);
+  transition-duration: 0.5s;
+  border-radius: 10px;
+}
+
+button{
+  margin: 20px 10px;
+  padding: 5 15;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+button:hover {
+  border: 1px solid rgb(0, 0, 0);
+}
+
+#barsmenu{
+  display: none;
+}
+
+.hamburger-nav-container{
+  font-size: 23px;
+  list-style-type: none;
+  display: none;
+  background-color: rgba(255, 255, 255, 0.596);
+}
+
+.hamburger-nav-container a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  font-weight: none;
+  font-size: large;
+  color: #000000;
+}
+
+.hamburger-nav-container a:hover{
+  color: white;
+  transition: ease-in-out;
+  background-color: #000000c7;
+  transition-delay: 0.1s;
+  transition-duration: 0.2s;
+}
+
+.hamburger-nav-container .hamburger-active {
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  background-color: #000000d7;
+}
+@media only screen and (max-width: 1200px) {
+  
+  .right {
+    flex: 100%;
+    justify-content: center;
+    display: flex;
+    margin-top: 30px;
+  }
+
+  .left {
+    margin: auto 0px;
+    flex: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+
+  .social-media{
+    justify-content: center;
+    margin: 10px auto;
+  }
+
+  .buttoncontact{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+  }
+  
+  section {
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .item-collapse {
+    display: none;
+  }
+
+  #barsmenu {
+    display: block;
+  }
+}

@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+  text-decoration: none;
+  font-family: "Poppins";
+}
+
+
+h1{
+  text-align: center;
+  font-weight:bolder;
+  color: #000000;
+  margin: 0px auto;
+}
+
+.main-form {
+  max-width: 500px;
+  margin: 0px auto;
+  padding: 20px 14px;
+  background-color: black;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.63);
+}
+
+.container-main-form{
+  padding: 40px 0px;
+  /* background-color: gold; */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+form div {
+  margin-top: 15px;
+}
+
+label {
+  font-size: 17px;
+  color: white;
+}
+
+input,select,textarea {
+  background-color: rgb(58, 58, 58);
+  width: 100%;
+  padding: 10px;
+  border: none;
+  resize: none;
+  color: #ffffff;
+}
+
+input:focus,select:focus,textarea:focus{
+  outline: none;
+  border: 1px solid gold;
+}
+
+.container-button{
+  text-align: center;
+  margin-top: 30px;
+}
+  
+.container-button button{
+  background-color: gold;
+  color: black;
+  padding: 6px 25px;
+  border: none;
+  width: 100%;
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+
+
+@media only screen and (max-width: 1200px) {
+  .card-container {
+    width: 100%;
+  }
+  .main-form {
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+  }
+
+}
+
+@media only screen and (max-width: 550px) {
+  .item-collapse {
+    display: none;
+  }
+
+  #barsmenu {
+    display: block;
+  }
+}

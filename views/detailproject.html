@@ -1,0 +1,113 @@
+<html>
+    <head>
+        <title>Detail Project</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+        rel="stylesheet" 
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" 
+        crossorigin="anonymous">
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"
+        />
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg bg-light">
+          <div class="container">
+            <a class="navbar-brand" href="index.html">
+              <img src="/public/assets/images/logo.png" />
+            </a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarTogglerDemo02"
+              aria-control="navbarTogglerDemo02"
+              aria-expanded="false"
+              aria-label="Toggle Navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link active text-orange fw-bold"
+                    aria-current="page"
+                    href="/myproject"
+                    >My project</a>
+                </li>
+                <li>
+                  <a href="/testimoni"
+                  class="nav-link"
+                  aria-current="page"
+                  >Tesimoni</a>
+                </li>
+              </ul>
+              <a href="/contact" class="btn bg-black text-white px-2">Contact Me</a>
+            </div>
+          </div>
+        </nav>
+        
+
+        
+          <div class="container mt-5">
+              <h1 class="text-center fw-bold">{{.Project.ProjectName}}</h1>
+              <div class="row g-0 mt-5 mb-5 g-4">
+                <div class="col-sm-6 col-md-8">
+                <img class="img-fluid p-3" src="/public/assets/project images/rumbling.jpg" alt="bmth">
+                </div>
+                <div class="col-sm-6 col-md-4 mb-5">
+                  <div class="">
+                    <h2 class="mb-3 fs-1">Duration</h2>
+                    <h5 class="mb-3 fs-4"><i class="fs-2 fa-solid fa-calendar-days"></i> {{.Project.StartDate}} - {{.Project.EndDate}}</h5>
+                    <h5 class="mb-3 fs-4"><i class="fs-2 fa-solid fa-clock"></i> {{.Project.Duration}}</h5>
+                  </div>
+                      <div class="container mt-5">
+                        <h2 class="mb-3 fs-1">Technologies</h2>
+                        <div class="row row-cols-2">
+                            {{if .Project.Java}}
+                            <div class="col">
+                                <h5 class="mb-3 fs-3"><i class="fs-2 fa-brands fa-java"></i> Java</h5>
+                            </div>   
+                            {{end}}
+                            {{if .Project.Html}}
+                            <div class="col">
+                                  <h5 class="mb-3 fs-3"><i class="fs-2 fa-brands fa-html5"></i> HTML</h5>
+                            </div>
+                            {{end}}
+                            {{if .Project.Javascript}}
+                            <div class="col">
+                              <h5 class="mb-3 fs-3"><i class="fs-2 fa-brands fa-js"></i> Java Script</h5>
+                            </div>   
+                            {{end}}
+                            {{if .Project.Css}}
+                            <div class="col">
+                              <h5 class="mb-3 fs-3"><i class="fs-2 fa-brands fa-css3-alt"></i>CSS</h5>
+                            </div>
+                            {{end}}
+                         </div>
+                     </div>
+                 </div>
+               </div>  
+            
+                <div class="">
+                 <p style="text-align: justify;">{{.Project.Description}}
+                  </p>
+                </div>
+        </div>
+          
+               
+
+                  
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" 
+        crossorigin="anonymous"></script>
+   </body> 
+</html>
+                

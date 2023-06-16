@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>REGISTER</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+        rel="stylesheet" 
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" 
+        crossorigin="anonymous"> -->
+</head>
+<body>
+  {{if .FlashMessage}} {{if .FlashStatus}}
+  <div class="alert alert-success alert-dismissable fade show" role="alert">
+    <strong>{{.FlashMessage}}</strong>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+  {{else}}
+  <div class="alert alert-danger alert-dismissable fade show" role="alert">
+    <strong>{{.FlashMessage}}</strong>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+  {{end}} {{end}}
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 p-3">
+        <h2 class="text-center mt-5 fw-bold">REGISTER</h2>
+        <form action="/register" method="POST">
+          <div class="form-group">
+            <label  for="inputName" class="form-label">Name</label>
+            <input type="text"
+            name="inputName"
+            id="inputName"
+            class="form-control">
+          </div>
+          <div class="form-group">
+            <label  for="inputEmail" class="form-label">Email</label>
+            <input  type="email"
+            name="inputEmail"
+            id="inputEmail"
+            class="form-control">
+          </div>
+          <div class="form-group">
+            <label  for="inputPassword" class="form-label">Password</label>
+            <input 
+            type="password"
+            name="inputPassword"
+            id="inputPassword"
+            class="form-control"
+            required placeholder="ketik saja 123">
+          </div>
+          <button class="btn btn-primary">Register</button> already have an account? <a href="/form-login"> login</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
