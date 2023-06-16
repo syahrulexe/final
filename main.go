@@ -78,32 +78,41 @@ func main() {
 }
 
 func home(c echo.Context) error {
-	data, _ := connection.Conn.Query(context.Background(), "SELECT tb_projects.id, tb_projects.name, start_date, end_date,duration, description, html, css, javascript, java, image, tb_user.name AS author FROM tb_projects JOIN tb_user ON tb_projects.author_id = tb_user.id")
-
-	var ress []Project
-	for data.Next() {
-		var each = Project{}
-
-		err := data.Scan(&each.Id, &each.ProjectName, &each.StartDate, &each.EndDate, &each.Duration, &each.Description, &each.Html, &each.Css, &each.Javascript, &each.Java, &each.Image, &each.Author)
-		if err != nil {
-			fmt.Println(err.Error())
-			return c.JSON(http.StatusInternalServerError, map[string]string{"Message": err.Error()})
-		}
-		ress = append(ress, each)
-	}
-
 	sess, _ := session.Get("session", c)
+	var ress []Project
 
 	if sess.Values["isLogin"] != true {
 		userData.IsLogin = false
+		data, _ := connection.Conn.Query(context.Background(), "SELECT tb_projects.id, tb_projects.name, start_date, end_date,duration, description, html, css, javascript, java, image, tb_user.name AS author FROM tb_projects JOIN tb_user ON tb_projects.author_id = tb_user.id")
+
+		for data.Next() {
+			var each = Project{}
+
+			err := data.Scan(&each.Id, &each.ProjectName, &each.StartDate, &each.EndDate, &each.Duration, &each.Description, &each.Html, &each.Css, &each.Javascript, &each.Java, &each.Image, &each.Author)
+			if err != nil {
+				fmt.Println(err.Error())
+				return c.JSON(http.StatusInternalServerError, map[string]string{"Message": err.Error()})
+			}
+			ress = append(ress, each)
+		}
 	} else {
 		userData.IsLogin = sess.Values["isLogin"].(bool)
 		userData.Name = sess.Values["name"].(string)
-	}
+		userId := sess.Values["id"]
+		data, _ := connection.Conn.Query(context.Background(), "SELECT tb_projects.id, tb_projects.name, start_date, end_date,duration, description, html, css, javascript, java, image, tb_user.name AS author FROM tb_projects JOIN tb_user ON tb_projects.author_id = tb_user.id", userId)
 
-	delete(sess.Values, "message")
-	delete(sess.Values, "status")
-	sess.Save(c.Request(), c.Response())
+		for data.Next() {
+			var each = Project{}
+
+			err := data.Scan(&each.Id, &each.ProjectName, &each.StartDate, &each.EndDate, &each.Duration, &each.Description, &each.Html, &each.Css, &each.Javascript, &each.Java, &each.Image, &each.Author)
+			if err != nil {
+				fmt.Println(err.Error())
+				return c.JSON(http.StatusInternalServerError, map[string]string{"Message": err.Error()})
+			}
+			ress = append(ress, each)
+		}
+
+	}
 
 	projects := map[string]interface{}{
 		"Projects":     ress,
@@ -111,6 +120,10 @@ func home(c echo.Context) error {
 		"FlashMessage": sess.Values["message"],
 		"DataSession":  userData,
 	}
+
+	delete(sess.Values, "message")
+	delete(sess.Values, "status")
+	sess.Save(c.Request(), c.Response())
 
 	var tmpl, err = template.ParseFiles("views/index.html")
 
