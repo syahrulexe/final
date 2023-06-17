@@ -57,7 +57,7 @@
             <div class="container d-flex justify-content-center fw-bold">
                 <div class="container-form mt-3 p-2"style="width: 450px;">
                     <h1 class="text-center fw-bold mb-3">Edit Project</h1>
-                    <form action="/edit-project/{{.Project.Id}}"  method="POST">
+                    <form action="/edit-project/{{.Project.Id}}" method="POST" enctype="multipart/form-data" >
                         <div class="mb-3">
                             <label class="form-label" for="input-project-name">Project Name</label>
                             <input class="form-control shadow-sm" type="text" name="input-name" id="input-project-name"/>
@@ -110,13 +110,13 @@
                         <div class="mb-3">
                             <label for="input-project-image" class="form-label">Upload Image</label>
                             <div class="input-group mb-3">
-                                <input type="file" class="form-control" id="input-project-image">
+                                <input type="file" class="form-control" id="inputImage" name="inputImage">
                                 <label class="input-group-text" for="input-project-image"><img src="assets/images/file.png" alt=""></label>
                               </div>
                           </div>
-                        <div class="button-submit d-grid gap-2 d-md-flex justify-content-md-end">
-                          <button type="submit" class="btn btn-primary text-white rounded-pill fw-bold" >submit</button>
-                        </div>
+                          <div class="button-submit d-grid gap-2 d-md-flex justify-content-md-end">
+                            <button type="submit" class="btn btn-primary text-white rounded-pill fw-bold" >submit</button>
+                          </div>
                     </form>
                 </div>
                 <!-- halaman bawah p2 -->

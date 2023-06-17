@@ -148,14 +148,13 @@
               </div>
 
               <section class="row justify-content-center">
-                {{if .DataSession.IsLogin}}
                 <h1 class="text-center">My Projects</h1>
                 {{range $index, $data := .Projects}}
                 <div class="col-lg-4 col-md-4 col-sm-6 mb-3">
                   <div class="card mt-3 shadow p-2 bg-body-tertiary rounded">
                     <img class="img-fluid w-100 object-fit-cover border rounded" style="height: 200px;" src="/uploads/{{$data.Image}}"  alt="">
                     <h4><a class="text-decoration-none" href="detailproject/{{$data.Id}}">{{$data.ProjectName}}</a></h4>
-                    <p class="mt-1">Duration : {{$data.Duration}} | {{$data.Author}}</p>
+                    <p class="mt-1">Duration : {{$data.Duration}} |created by : {{$data.Author}}</p>
                     <p>{{$data.Description}}</p>
                     <div class="fs-3">
                       {{if $data.Java}}
@@ -171,14 +170,14 @@
                       <i class="fa-brands fa-js"></i>
                       {{end}}
                     </div> 
+                    {{if $.DataSession.IsLogin}}
                     <div class="mt-3 d-flex gap-2 w-100">
                       <a href="edit-project/{{$data.Id}}" class="w-50" method="GET"><button class="btn btn-dark w-100"  type="submit" >edit</button></a>
                       <form class="w-50  mb-0"  action="/deleteProject/{{$data.Id}}" method="POST" ><button type="submit" class="btn btn-dark w-100" >delete</button></form>
-                        
                     </div> 
+                    {{end}}
                   </div>   
                 </div>
-                {{end}}
                 {{end}}
               </section>
 
